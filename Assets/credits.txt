@@ -1,0 +1,2 @@
+Assets taken from
+https://github.com/arkeve/Godot-Pokemon
