@@ -24,8 +24,8 @@ void setup() {
 void draw() {
   
   // draw bg
-  for (int r = 0; r < camera.length; ++r) {
-    for (int c = 0; c < camera[r].length; ++c) {
+  for (int r = 0; r < camera[0]; ++r) {
+    for (int c = 0; c < camera[1]; ++c) {
       sprites[0].render(r, c);
     }
   }
