@@ -2,7 +2,7 @@ public class MonoBehaviour {
   private int x;
   private int y;
   
-  public MonoBehaviour (x, y) {
+  public MonoBehaviour (int x, int y) {
     gameObjects.add(this);
     this.x = x;
     this.y = y;
