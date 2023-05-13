@@ -4,16 +4,17 @@ Recreation of Unity APIs in Processing
 */
 
 ArrayList<MonoBehaviour> gameObjects;
-static int TILE_WIDTH = 20;
-static int[][] camera; // subsection that is displayed of full map
+static int TILE_WIDTH = 60;
+static int[][] tiles; // subsection that is displayed of full map
+static int[] camera; // { rows, columns }
 static Sprite[] sprites; 
 
 void setup() {
   size(1200, 900);
-  camera = new int[height/TILE_WIDTH][width/TILE_WIDTH];
+  camera = new int[]{height/TILE_WIDTH, width/TILE_WIDTH};
   gameObjects = new ArrayList<MonoBehaviour>();
   sprites = new Sprite[]{
-    
+    new Sprite("Assets/path.png", 1, 1)
   }; // sprites stored in memory
   
   /* INITIALIZE STARTING GAME OBJECTS */
@@ -21,10 +22,19 @@ void setup() {
 }
 
 void draw() {
-  // draw bgs, create z-index of some sort?
+  
+  // draw bg
+  for (int r = 0; r < camera.length; ++r) {
+    for (int c = 0; c < camera[r].length; ++c) {
+      sprites[0].render(r, c);
+    }
+  }
+  
   // draw gameobjects
   for (MonoBehaviour gameObject : gameObjects) {
     gameObject.update();
+    
+    // if game object is on camera
     gameObject.render();
   }
 }

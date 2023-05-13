@@ -1,6 +1,11 @@
 public class MonoBehaviour {
-  public MonoBehaviour () {
+  private int x;
+  private int y;
+  
+  public MonoBehaviour (x, y) {
     gameObjects.add(this);
+    this.x = x;
+    this.y = y;
   }
   
   public void update() {
@@ -8,10 +13,13 @@ public class MonoBehaviour {
   }
   
   public void keyPressed() {
-    System.out.println(keyCode);
+    
   }
   
   public void render() {
   // default render is empty
   }
+  
+  public int getX() { return x; }
+  public int getY() { return y; }
 }
